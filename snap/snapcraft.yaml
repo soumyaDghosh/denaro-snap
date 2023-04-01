@@ -22,7 +22,7 @@ parts:
   denaro:
     # See 'snapcraft plugins'
     plugin: nil
-    source: https://github.com/nlogozzo/NickvisionMoney
+    source: https://github.com/nlogozzo/NickvisionMoney.git
     source-tag: V$SNAPCRAFT_PROJECT_VERSION
     build-packages:
       - just
@@ -45,4 +45,4 @@ apps:
     extensions: [gnome]
     common-id: org.nickvision.money
     plugs:
-      - home    
+      - home
