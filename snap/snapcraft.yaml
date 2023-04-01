@@ -1,6 +1,6 @@
 name: denaro # you probably want to 'snapcraft register <name>'
 base: core22 # the base snap is the execution environment for this snap
-version: '2023.2.2' # just for humans, typically '1.2+git' or '1.3.2'
+version: '2023.3.0-beta2' # just for humans, typically '1.2+git' or '1.3.2'
 adopt-info: denaro
 icon: org.nickvision.money.svg
 source-code: https://github.com/nlogozzo/NickvisionMoney
@@ -23,7 +23,7 @@ parts:
     # See 'snapcraft plugins'
     plugin: nil
     source: https://github.com/nlogozzo/NickvisionMoney.git
-    source-tag: V$SNAPCRAFT_PROJECT_VERSION
+    source-tag: $SNAPCRAFT_PROJECT_VERSION
     build-packages:
       - just
       - blueprint-compiler
