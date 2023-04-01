@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Checkout Git repository
         uses: actions/checkout@v3
-      - name: Build obfuscate Snap
+      - name: Build denaro Snap
         uses: snapcore/action-build@v1
         id: snapcraft-build
         with:
