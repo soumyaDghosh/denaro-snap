@@ -41,10 +41,12 @@ parts:
     source: https://github.com/NickvisionApps/Denaro.git
     source-tag: $SNAPCRAFT_PROJECT_VERSION
     source-subdir: NickvisionMoney.GNOME
+    build-snaps:
+      - dotnet-sdk
     build-packages:
 #      - just
       - blueprint-compiler
-      - dotnet-sdk-7.0
+#      - dotnet-sdk-7.0
     override-prime: |
       craftctl default
       cd $CRAFT_PART_SRC_WORK
