@@ -32,6 +32,8 @@ parts:
     source-tag: '1.13.0'
     source-type: git
     source: https://github.com/casey/just
+    build-packages:
+      - cargo
   denaro:
     after: [just]
     # See 'snapcraft plugins'
