@@ -41,7 +41,7 @@ parts:
       sed -e 's|Icon=org.nickvision.money|Icon=usr/share/icons/hicolor/scalable/apps/org.nickvision.money.svg|' -i NickvisionMoney.GNOME/org.nickvision.money.desktop
     override-prime: |
       craftctl default
-      cd CRAFT_PART_SRC_WORK
+      cd $CRAFT_PART_SRC_WORK
       just publish-self-contained /usr
       just install /root/prime
       sed -i "s|exec /usr/lib/org.nickvision.money/NickvisionMoney.GNOME|exec /snap/denaro/current/usr/lib/org.nickvision.money/NickvisionMoney.GNOME|" /root/prime/usr/bin/org.nickvision.money
