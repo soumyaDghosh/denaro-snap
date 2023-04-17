@@ -10,6 +10,10 @@ source-code: https://github.com/nlogozzo/NickvisionMoney
 issues: https://github.com/nlogozzo/NickvisionMoney/issues
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+  - build-on: armhf
 package-repositories:
   - type: apt
     url: https://packages.microsoft.com/ubuntu/22.04/prod
@@ -27,6 +31,7 @@ parts:
     plugin: nil
     source: https://github.com/NickvisionApps/Denaro.git
     source-tag: $SNAPCRAFT_PROJECT_VERSION
+    source-subdir: NickvisionMoney.GNOME
     build-packages:
       - just
       - blueprint-compiler
@@ -36,11 +41,11 @@ parts:
       sed -e 's|Icon=org.nickvision.money|Icon=usr/share/icons/hicolor/scalable/apps/org.nickvision.money.svg|' -i NickvisionMoney.GNOME/org.nickvision.money.desktop
     override-prime: |
       craftctl default
-      cd ~/parts/denaro/src/NickvisionMoney.GNOME
+      cd CRAFT_PART_SRC_WORK
       just publish-self-contained /usr
       just install /root/prime
       sed -i "s|exec /usr/lib/org.nickvision.money/NickvisionMoney.GNOME|exec /snap/denaro/current/usr/lib/org.nickvision.money/NickvisionMoney.GNOME|" /root/prime/usr/bin/org.nickvision.money
-    parse-info: [usr/share/metainfo/org.nickvision.money.metainfo.xml]
+    parse-info: [ usr/share/metainfo/org.nickvision.money.metainfo.xml ]
 apps:
   denaro:
     command: usr/bin/org.nickvision.money
