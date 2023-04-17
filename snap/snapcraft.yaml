@@ -57,7 +57,7 @@ parts:
       ./dotnet-install.sh --channel 7.0
     override-build: |
       export DOTNET_ROOT=$HOME/.dotnet
-      export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+      export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.cargo/bin
       cd $CRAFT_PART_SRC_WORK
       just publish-self-contained /usr
       just install $CRAFT_PRIME
