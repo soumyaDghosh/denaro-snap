@@ -37,7 +37,7 @@ parts:
   denaro:
     after: [just]
     # See 'snapcraft plugins'
-    plugin: dotnet
+    plugin: nil
     source: https://github.com/NickvisionApps/Denaro.git
     source-tag: $SNAPCRAFT_PROJECT_VERSION
     source-subdir: NickvisionMoney.GNOME
