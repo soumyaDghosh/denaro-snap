@@ -46,6 +46,7 @@ parts:
     build-packages:
 #      - just
       - blueprint-compiler
+      - wget
 #      - dotnet-sdk-7.0
     override-pull: |
       craftctl default
