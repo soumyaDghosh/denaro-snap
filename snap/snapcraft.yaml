@@ -26,14 +26,19 @@ package-repositories:
 #    key-id: B70EAE798718E0FE2972DD0C4FE9F2C43D9428A0
 #    url: https://proget.makedeb.org
 parts:
+  just:
+    plugin: rust
+    source-depth: 1
+    source-tag: '1.13.0'
+    source-type: git
+    source: https://github.com/casey/just
   denaro:
+    after: [just]
     # See 'snapcraft plugins'
     plugin: nil
     source: https://github.com/NickvisionApps/Denaro.git
     source-tag: $SNAPCRAFT_PROJECT_VERSION
     source-subdir: NickvisionMoney.GNOME
-    build-snaps:
-      - just
     build-packages:
 #      - just
       - blueprint-compiler
