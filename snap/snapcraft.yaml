@@ -38,13 +38,13 @@ parts:
       - dotnet-sdk-7.0
     override-build: |
       craftctl default
-      sed -e 's|Icon=org.nickvision.money|Icon=usr/share/icons/hicolor/scalable/apps/org.nickvision.money.svg|' -i NickvisionMoney.GNOME/org.nickvision.money.desktop
+      sed -e 's|Icon=org.nickvision.money|Icon=usr/share/icons/hicolor/scalable/apps/org.nickvision.money.svg|' -i $CRAFT_PART_SRC_WORK/org.nickvision.money.desktop
     override-prime: |
       craftctl default
       cd $CRAFT_PART_SRC_WORK
       just publish-self-contained /usr
-      just install /root/prime
-      sed -i "s|exec /usr/lib/org.nickvision.money/NickvisionMoney.GNOME|exec /snap/denaro/current/usr/lib/org.nickvision.money/NickvisionMoney.GNOME|" /root/prime/usr/bin/org.nickvision.money
+      just install $CRAFT_PRIME
+      sed -i "s|exec /usr/lib/org.nickvision.money/NickvisionMoney.GNOME|exec /snap/denaro/current/usr/lib/org.nickvision.money/NickvisionMoney.GNOME|" $CRAFT_PRIME/usr/bin/org.nickvision.money
     parse-info: [ usr/share/metainfo/org.nickvision.money.metainfo.xml ]
 apps:
   denaro:
