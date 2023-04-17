@@ -26,16 +26,16 @@ package-repositories:
 #    key-id: B70EAE798718E0FE2972DD0C4FE9F2C43D9428A0
 #    url: https://proget.makedeb.org
 parts:
-  just:
-    plugin: rust
-    source-depth: 1
-    source-tag: '1.13.0'
-    source-type: git
-    source: https://github.com/casey/just
-    build-packages:
-      - cargo
+#  just:
+#    plugin: rust
+#    source-depth: 1
+#    source-tag: '1.13.0'
+#    source-type: git
+#    source: https://github.com/casey/just
+#    build-packages:
+#      - cargo
   denaro:
-    after: [just]
+#    after: [just]
     # See 'snapcraft plugins'
     plugin: nil
     source: https://github.com/NickvisionApps/Denaro.git
@@ -47,9 +47,11 @@ parts:
 #      - just
       - blueprint-compiler
       - wget
+      - cargo
 #      - dotnet-sdk-7.0
     override-pull: |
       craftctl default
+      cargo install just
       wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
       chmod +x ./dotnet-install.sh
       ./dotnet-install.sh --channel 7.0
