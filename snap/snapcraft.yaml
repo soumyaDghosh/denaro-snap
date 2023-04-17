@@ -37,18 +37,17 @@ parts:
   denaro:
     after: [just]
     # See 'snapcraft plugins'
-    plugin: nil
+    plugin: dotnet
     source: https://github.com/NickvisionApps/Denaro.git
     source-tag: $SNAPCRAFT_PROJECT_VERSION
     source-subdir: NickvisionMoney.GNOME
-    build-snaps:
-      - dotnet-sdk
+#    build-snaps:
+#      - dotnet-sdk
     build-packages:
 #      - just
       - blueprint-compiler
 #      - dotnet-sdk-7.0
-    override-prime: |
-      craftctl default
+    override-build: |
       cd $CRAFT_PART_SRC_WORK
       just publish-self-contained /usr
       just install $CRAFT_PRIME
